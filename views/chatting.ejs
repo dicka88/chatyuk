@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="./css/bulma.min.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/bone.min.css">
+    <link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="shortcut icon" href="./images/logo/128.png" type="image/x-icon">
+    <script src="./js/socket.io.js"></script>
+    <style>
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar is-fixed-top gradient" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" style="padding: 0 1rem;" href="./">
+                <img src="./images/logo/chatyuk.png" style="max-height: 100%; height: 60px; width: auto;">
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a role="button" href="./logout" class="button is-white is-outlined" style="border: 2px solid white" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="root" class="mt-5">
+        <div class="mb-5 px-4 columns">
+            <article v-cloak v-if="userWriting" class="message is-primary" style="position: fixed; top: 60px; z-index: 1;">
+                <div class="message-header">
+                    <p>{{ userWriting }} </p>
+                </div>
+            </article>
+            <div class="column is-7 comment is-outlined">
+                <progress v-if="loadState" class="progress is-small is-primary" max="100">15%</progress>
+                <comment-component v-for="item in article" v-bind:item="item"></comment-component>
+                <span v-if="!article.length">Nothing one here</span>
+            </div>
+            <div v-cloak class="column is-5" style="padding: 0 2rem;">
+                <div style="position: fixed; max-width: 500px; width:100%">
+                    <div class="columns">
+                        <div class="column is-8">
+                            <div class="card" style="border-radius: 10px; height: 100%;">
+                                <div class="card-content">
+                                    <div class="media">
+                                        <figure class="media-left">
+                                            <p class="image is-64x64">
+                                                <img class="is-rounded" :src="avatar" style="border: 2px solid black">
+                                            </p>
+                                        </figure>
+                                        <div class="media-content">
+                                            <p class="title is-5">{{ username }}</p>
+                                            <p class="subtitle is-6"><a v-if="github=='true'" target="_blank" :href="url_github">@{{ login }}</a><span v-else>anonymous</span></small>
+                                            </p>
+                                        </div>
+                                        <figure class="media-right">
+                                            <i :style="[isOnline ? {'color': 'yellowgreen'} : {'color' : 'red'}]" class="fa fa-circle"></i> {{ isOnline ? 'online' : 'offline' }}
+                                        </figure>
+                                    </div>
+
+                                    <div class="content">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card" style="border-radius: 10px; height:100%;">
+                                <div class="card-content">
+                                    <div v-on:click="alert('soon, fork this repo')" class="content">
+                                        Change Name or change your profile
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="border-radius: 10px; margin-top: 1rem; overflow-y: auto;">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-6">User online</p>
+                                    <ol style="margin-left: 1em;">
+                                        <li v-for="user in userOnline">{{ user.user_name}}</li>
+                                    </ol>
+                                </div>
+                            <div class="content">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-message pb-1 bg-white" style="padding-top: 1rem;">
+            <form @submit.prevent="addComment" class="mr-3 ml-3">
+                <div class="columns is-mobile">
+                    <div class="column is-three-quarters-mobile">
+                        <textarea @keydown.enter="addComment" v-on:keyup="writing" class="textarea text-message" style="overflow: hidden; resize: none;" v-model="message" placeholder="Type a message"></textarea>
+                    </div>
+                    <div class="column">
+                        <button type="submit" id="send-message" class="button is-info">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const user_id = '<%= user.user_id %>'
+        const login = '<%= user.login %>'
+        const user_name = '<%= user.name %>'
+        const is_github = '<%= user.github %>'
+        const url_avatar = '<%= user.avatar_url %>'
+        const email = '<%= user.email %>'
+    </script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/httpVueLoader.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/chatting.vue.js"></script>
+</body>
+
+</html>

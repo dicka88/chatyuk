@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./images/logo/128.png" />
+    <link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/util.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                <form class="login100-form validate-form" action="auth/login" method="post">
+                    <span class="login100-form-title p-b-25">
+						Login
+					</span>
+
+                    <div class="image-icon-logo mb-5">
+                        <img style="display: block; margin: 0 auto;" src="./images/logo/512.png" width="150px" alt="">
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                        <span class="label-input100">Anonymous login</span>
+                        <input class="input100" type="text" autocomplete="off" name="username" placeholder="Type your username">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="submit" class="login100-form-btn">
+								Login
+							</button>
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn" style="color: white; margin-top: 10px;">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-github"></div>
+                            <a href="./auth/github" class="login100-form-btn white" style="text-decoration: none;">
+								Github <i class=" fa fa-github " style="margin: 0 5px; font-size: 1.5rem; "></i>
+							</a>
+                        </div>
+                    </div>
+
+                    <div class="flex-col-c p-t-20 ">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./vendor/jquery/jquery-3.2.1.min.js "></script>
+    <script src="./vendor/bootstrap/js/popper.js "></script>
+    <script src="./vendor/bootstrap/js/bootstrap.min.js "></script>
+    <script src="./js/main.js "></script>
+
+</body>
+
+</html>
