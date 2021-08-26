@@ -6,9 +6,9 @@ const connectionString = `postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_POR
 
 const pool = new Pool({
     connectionString,
-    // ssl: {
-    //     rejectUnauthorized: false,
-    // }
+    ssl: {
+        rejectUnauthorized: false,
+    }
 })
 
 const insert_user = async(userLogin) => {
