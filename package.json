@@ -7,7 +7,7 @@
     "nodemon": "nodemon ./bin/www"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -20,7 +20,7 @@
     "path": "^0.12.7",
     "pg": "^7.18.1",
     "sequelize": "^5.21.4",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.1"
   },
   "devDependencies": {
     "nodemon": "latest"
