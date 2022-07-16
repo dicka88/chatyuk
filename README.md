@@ -56,6 +56,10 @@ Screenshot
 	"socket.io": "^2.3.0"
 }
 ```
+# TODO
+- [] Convert to Vue Js
+- [] Create API backend + websocket (Node + Typescript)
+
 ## Deploy
 	Deploy to heroku app
 	1. first make an postgresql adds
