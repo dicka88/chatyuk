@@ -57,8 +57,8 @@ Screenshot
 }
 ```
 # TODO
-- [] Convert to Vue Js
-- [] Create API backend + websocket (Node + Typescript)
+- [ ] Convert to Vue Js
+- [ ] Create API backend + websocket (Node + Typescript)
 
 ## Deploy
 	Deploy to heroku app
