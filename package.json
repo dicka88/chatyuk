@@ -20,7 +20,7 @@
     "path": "^0.12.7",
     "pg": "^8.0.3",
     "sequelize": "^5.21.4",
-    "socket.io": "^2.4.1"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "latest"
